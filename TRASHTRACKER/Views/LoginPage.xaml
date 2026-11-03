@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TrashTracker.ViewModels"
+             x:Class="TrashTracker.Views.LoginPage"
+             Title="Iniciar Sesión - TrashTracker">
+    
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+            
+            <Label Text="TrashTracker" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+            <Entry Placeholder="Correo Institucional (@pascualbravo.edu.co)" 
+                   Text="{Binding Correo}" 
+                   Keyboard="Email"/>
+
+            <Entry Placeholder="Contraseña" 
+                   Text="{Binding Password}" 
+                   IsPassword="True"/>
+
+            <Button Text="Iniciar Sesión" 
+                    Command="{Binding LoginCommand}" 
+                    BackgroundColor="Green" 
+                    TextColor="White"/>
+			<Button Text="¿No tienes cuenta? Regístrate aquí"
+                    Command="{Binding NavigateToRegisterCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="Green"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TrashTracker.ViewModels"
+             x:Class="TrashTracker.Views.CreateReportPage"
+             Title="Nuevo Reporte de Residuo">
+
+    <ContentPage.BindingContext>
+        <vm:CreateReportViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <Label Text="Reportar Problema de Limpieza" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <Button Text="Tomar Foto del Residuo" Command="{Binding CapturePhotoCommand}" BackgroundColor="DarkSlateGray" TextColor="White"/>
+            <Image Source="{Binding PhotoPath}" HeightRequest="180" WidthRequest="180" BackgroundColor="LightGray" HorizontalOptions="Center"/>
+
+            <Label Text="Tipo de Residuo:" FontAttributes="Bold"/>
+            <Picker Title="Seleccione una categoría" SelectedItem="{Binding SelectedTipoResiduo}">
+                <Picker.Items>
+                    <x:String>Orgánico</x:String>
+                    <x:String>Reciclable</x:String>
+                    <x:String>Peligroso / Vidrio</x:String>
+                    <x:String>Escombros</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Nivel de Urgencia:" FontAttributes="Bold"/>
+            <Picker Title="Seleccione la urgencia" SelectedItem="{Binding SelectedUrgencia}">
+                <Picker.Items>
+                    <x:String>Baja</x:String>
+                    <x:String>Media</x:String>
+                    <x:String>Alta (Riesgo / Bloqueo)</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Descripción o referencia exacta:" FontAttributes="Bold"/>
+            <Editor Placeholder="Ej. Cerca a las bancas del bloque 12..." Text="{Binding Descripcion}" HeightRequest="80"/>
+
+            <Button Text="Enviar Reporte" Command="{Binding SubmitReportCommand}" BackgroundColor="Green" TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
