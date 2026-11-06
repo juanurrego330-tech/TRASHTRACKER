@@ -70,4 +70,22 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Compile Update="Views\MenuPage.xaml.cs">
+	    <DependentUpon>MenuPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\InformacionUsuarioPage.xaml.cs">
+	    <DependentUpon>InformacionUsuarioPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\MenuPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\InformacionUsuarioPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

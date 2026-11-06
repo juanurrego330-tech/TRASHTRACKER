@@ -13,7 +13,7 @@
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="LoginPage" />
     <ShellContent
-        Title="Nuevo Reporte"
-        ContentTemplate="{DataTemplate views:CreateReportPage}"
-        Route="CreateReportPage" />
+        Title="Menú"
+        ContentTemplate="{DataTemplate views:MenuPage}"
+        Route="MenuPage" />
 </Shell>

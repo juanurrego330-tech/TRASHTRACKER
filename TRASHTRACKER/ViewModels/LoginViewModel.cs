@@ -49,12 +49,12 @@ namespace TrashTracker.ViewModels
             bool exito = await _apiService.LoginAsync(Correo, Password);
             if (exito)
             {
-                await Shell.Current.GoToAsync($"///{nameof(CreateReportPage)}");
+                await Shell.Current.GoToAsync($"//{nameof(MenuPage)}");
             }
             else
             {
                 await Shell.Current.DisplayAlert("Error", "Credenciales inválidas.", "OK");
-            } 
+            }
         }
         public ICommand NavigateToRegisterCommand { get; }
     }

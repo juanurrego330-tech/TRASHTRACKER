@@ -10,6 +10,7 @@ namespace TrashTracker.ViewModels
     public class RegisterViewModel : INotifyPropertyChanged
     {
         private string _nombre = string.Empty;
+        private string _apellido = string.Empty;
         private string _correo = string.Empty;
         private string _password = string.Empty;
         private readonly ApiService _apiService = new();
@@ -18,6 +19,12 @@ namespace TrashTracker.ViewModels
         {
             get => _nombre;
             set { _nombre = value; OnPropertyChanged(); }
+        }
+
+        public string Apellido
+        {
+            get => _apellido;
+            set { _apellido = value; OnPropertyChanged(); }
         }
 
         public string Correo
@@ -43,7 +50,8 @@ namespace TrashTracker.ViewModels
 
         private async Task OnRegisterAsync()
         {
-            if (string.IsNullOrWhiteSpace(Nombre) || string.IsNullOrWhiteSpace(Correo) || string.IsNullOrWhiteSpace(Password))
+            if (string.IsNullOrWhiteSpace(Nombre) || string.IsNullOrWhiteSpace(Apellido) ||
+                string.IsNullOrWhiteSpace(Correo) || string.IsNullOrWhiteSpace(Password))
             {
                 await Shell.Current.DisplayAlert("Error", "Todos los campos son obligatorios.", "OK");
                 return;

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TrashTracker.ViewModels"
+             x:Class="TrashTracker.Views.MenuPage"
+             Title="Menú principal">
+
+    <ContentPage.BindingContext>
+        <vm:MenuViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+
+            <Label Text="TrashTracker" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+
+            <Button Text="Generar reporte"
+                    Command="{Binding GenerarReporteCommand}"
+                    HeightRequest="80"
+                    FontSize="18"
+                    BackgroundColor="Green"
+                    TextColor="White"/>
+
+            <Button Text="Información Usuario"
+                    Command="{Binding InformacionUsuarioCommand}"
+                    HeightRequest="80"
+                    FontSize="18"
+                    BackgroundColor="DarkSlateGray"
+                    TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

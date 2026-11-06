@@ -13,8 +13,12 @@
         <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
 
             <Label Text="Crear Cuenta" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
-            <Entry Placeholder="Nombre y Apellido" 
+
+            <Entry Placeholder="Nombre"
                    Text="{Binding Nombre}"/>
+
+            <Entry Placeholder="Apellido"
+                   Text="{Binding Apellido}"/>
 
             <Entry Placeholder="Correo Institucional (@pascualbravo.edu.co)" 
                    Text="{Binding Correo}" 

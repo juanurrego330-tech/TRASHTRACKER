@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:TrashTracker.ViewModels"
+             x:Class="TrashTracker.Views.InformacionUsuarioPage"
+             Title="Información Usuario">
+
+    <ContentPage.BindingContext>
+        <vm:InformacionUsuarioViewModel />
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="15">
+
+            <Label Text="Información del Usuario" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+
+            <Label Text="Nombre:" FontAttributes="Bold"/>
+            <Label Text="{Binding Nombre}" FontSize="16"/>
+
+            <Label Text="Apellido:" FontAttributes="Bold"/>
+            <Label Text="{Binding Apellido}" FontSize="16"/>
+
+            <Label Text="Correo institucional:" FontAttributes="Bold"/>
+            <Label Text="{Binding Correo}" FontSize="16"/>
+
+            <Label Text="Rol:" FontAttributes="Bold"/>
+            <Label Text="{Binding Rol}" FontSize="16"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
