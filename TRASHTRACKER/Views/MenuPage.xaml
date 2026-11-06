@@ -16,17 +16,18 @@
 
             <Button Text="Generar reporte"
                     Command="{Binding GenerarReporteCommand}"
-                    HeightRequest="80"
-                    FontSize="18"
-                    BackgroundColor="Green"
-                    TextColor="White"/>
+                    HeightRequest="80" FontSize="18"
+                    BackgroundColor="Green" TextColor="White"/>
+
+            <Button Text="Ver reportes"
+                    Command="{Binding VerReportesCommand}"
+                    HeightRequest="80" FontSize="18"
+                    BackgroundColor="SeaGreen" TextColor="White"/>
 
             <Button Text="Información Usuario"
                     Command="{Binding InformacionUsuarioCommand}"
-                    HeightRequest="80"
-                    FontSize="18"
-                    BackgroundColor="DarkSlateGray"
-                    TextColor="White"/>
+                    HeightRequest="80" FontSize="18"
+                    BackgroundColor="DarkSlateGray" TextColor="White"/>
 
         </VerticalStackLayout>
     </ScrollView>

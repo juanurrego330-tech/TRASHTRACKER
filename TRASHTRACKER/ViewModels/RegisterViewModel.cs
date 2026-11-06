@@ -63,7 +63,13 @@ namespace TrashTracker.ViewModels
                 return;
             }
 
-            bool exito = await _apiService.RegistrarUsuarioAsync(Correo, Password);
+            if (Password.Length < 8)
+            {
+                await Shell.Current.DisplayAlert("Contraseña", "La contraseña debe tener mínimo 8 caracteres.", "OK");
+                return;
+            }
+
+            bool exito = await _apiService.RegistrarUsuarioAsync(Nombre, Apellido, Correo, Password);
             if (exito)
             {
                 await Shell.Current.DisplayAlert("Éxito", "Cuenta registrada correctamente. Ahora puedes iniciar sesión.", "OK");
@@ -71,7 +77,7 @@ namespace TrashTracker.ViewModels
             }
             else
             {
-                await Shell.Current.DisplayAlert("Error", "No se pudo completar el registro.", "OK");
+                await Shell.Current.DisplayAlert("Error", "No se pudo completar el registro. Es posible que el correo ya esté registrado.", "OK");
             }
         }
 

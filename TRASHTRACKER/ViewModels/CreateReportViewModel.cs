@@ -1,10 +1,6 @@
-using System;
 using System.ComponentModel;
-using System.IO;
 using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
 using System.Windows.Input;
-using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices.Sensors;
 using Microsoft.Maui.Media;
 using TrashTracker.Models;
@@ -17,8 +13,15 @@ namespace TrashTracker.ViewModels
         private string _photoPath = string.Empty;
         private string _selectedTipoResiduo = string.Empty;
         private string _selectedUrgencia = "Media";
+        private string _selectedBloque = string.Empty;
+        private string _selectedPiso = string.Empty;
         private string _descripcion = string.Empty;
         private readonly ApiService _apiService = new();
+
+        public List<string> Bloques { get; } =
+            Enumerable.Range(1, BaseDatos.TotalBloques).Select(n => n.ToString()).ToList();
+        public List<string> Pisos { get; } =
+            Enumerable.Range(1, BaseDatos.MaxPisos).Select(n => n.ToString()).ToList();
 
         public string PhotoPath
         {
@@ -36,6 +39,18 @@ namespace TrashTracker.ViewModels
         {
             get => _selectedUrgencia;
             set { _selectedUrgencia = value; OnPropertyChanged(); }
+        }
+
+        public string SelectedBloque
+        {
+            get => _selectedBloque;
+            set { _selectedBloque = value; OnPropertyChanged(); }
+        }
+
+        public string SelectedPiso
+        {
+            get => _selectedPiso;
+            set { _selectedPiso = value; OnPropertyChanged(); }
         }
 
         public string Descripcion
@@ -59,12 +74,15 @@ namespace TrashTracker.ViewModels
             {
                 if (MediaPicker.Default.IsCaptureSupported)
                 {
-                    FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+                    FileResult? photo = await MediaPicker.Default.CapturePhotoAsync();
                     if (photo != null)
                     {
-                        string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+                        // AppDataDirectory es permanente (Cache puede ser borrada por Android)
+                        string nombreArchivo = $"{Guid.NewGuid():N}{Path.GetExtension(photo.FileName)}";
+                        string localFilePath = Path.Combine(FileSystem.AppDataDirectory, nombreArchivo);
+
                         using Stream sourceStream = await photo.OpenReadAsync();
-                        using FileStream localFileStream = File.OpenWrite(localFilePath);
+                        using FileStream localFileStream = File.Create(localFilePath);
                         await sourceStream.CopyToAsync(localFileStream);
 
                         PhotoPath = localFilePath;
@@ -91,7 +109,13 @@ namespace TrashTracker.ViewModels
                 return;
             }
 
-            double lat = 0, lon = 0;
+            if (string.IsNullOrEmpty(SelectedBloque) || string.IsNullOrEmpty(SelectedPiso))
+            {
+                await Shell.Current.DisplayAlert("Validación", "Debe seleccionar el bloque y el piso.", "OK");
+                return;
+            }
+
+            double? lat = null, lon = null;
             try
             {
                 var location = await Geolocation.Default.GetLocationAsync(new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(5)));
@@ -107,16 +131,23 @@ namespace TrashTracker.ViewModels
             {
                 TipoResiduo = SelectedTipoResiduo,
                 Urgencia = SelectedUrgencia,
+                Bloque = SelectedBloque,
+                Piso = SelectedPiso,
                 Descripcion = Descripcion,
-                FotoRuta = PhotoPath,
+                NombreFoto = Path.GetFileName(PhotoPath),
                 Latitud = lat,
                 Longitud = lon
             };
 
-            await _apiService.CrearReporteAsync(reporte);
+            bool guardado = await _apiService.CrearReporteAsync(reporte);
+            if (!guardado)
+            {
+                await Shell.Current.DisplayAlert("Error", "No se pudo guardar el reporte. Intenta de nuevo.", "OK");
+                return;
+            }
 
             await Shell.Current.DisplayAlert("Éxito", "Reporte enviado correctamente al sistema del campus.", "OK");
-            
+
             PhotoPath = string.Empty;
             SelectedTipoResiduo = string.Empty;
             Descripcion = string.Empty;

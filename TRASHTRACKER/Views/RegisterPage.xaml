@@ -24,7 +24,7 @@
                    Text="{Binding Correo}" 
                    Keyboard="Email"/>
 
-            <Entry Placeholder="Contraseña" 
+            <Entry Placeholder="Contraseña (mínimo 8 caracteres)" 
                    Text="{Binding Password}" 
                    IsPassword="True"/>
 

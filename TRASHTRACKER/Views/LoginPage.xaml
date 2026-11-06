@@ -25,7 +25,11 @@
                     Command="{Binding LoginCommand}" 
                     BackgroundColor="Green" 
                     TextColor="White"/>
-			<Button Text="¿No tienes cuenta? Regístrate aquí"
+            <Button Text="¿Olvidaste tu contraseña?"
+                    Command="{Binding ForgotPasswordCommand}"
+                    BackgroundColor="Transparent"
+                    TextColor="Green"/>
+            <Button Text="¿No tienes cuenta? Regístrate aquí"
                     Command="{Binding NavigateToRegisterCommand}"
                     BackgroundColor="Transparent"
                     TextColor="Green"/>

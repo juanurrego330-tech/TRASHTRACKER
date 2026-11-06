@@ -48,26 +48,28 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- App Icon -->
-		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+	<!-- App Icon (¡REEMPLAZADO AQUÍ!) -->
+	<MauiIcon Include="Resources\AppIcon\appiconbg.png" ForegroundFile="Resources\AppIcon\appiconfg.png" Color="#24CA3D" />
 
-		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+	<!-- Splash Screen -->
+	<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#24CA3D" BaseSize="128,128" />
 
-		<!-- Images -->
-		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
-		
-		<!-- Custom Fonts -->
-		<MauiFont Include="Resources\Fonts\*" />
+	<!-- Images -->
+	<MauiImage Include="Resources\Images\*" />
+	<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+	
+	<!-- Custom Fonts -->
+	<MauiFont Include="Resources\Fonts\*" />
 
-		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
-	</ItemGroup>
+	<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+	<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+</ItemGroup>
+
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.0" />
+		<PackageReference Include="sqlite-net-pcl" Version="1.11.285" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -77,6 +79,12 @@
 	  <Compile Update="Views\InformacionUsuarioPage.xaml.cs">
 	    <DependentUpon>InformacionUsuarioPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Views\RecuperarPasswordPage.xaml.cs">
+	    <DependentUpon>RecuperarPasswordPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\ReportesPage.xaml.cs">
+	    <DependentUpon>ReportesPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -84,6 +92,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\InformacionUsuarioPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RecuperarPasswordPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ReportesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

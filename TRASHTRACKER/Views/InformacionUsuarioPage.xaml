@@ -15,16 +15,18 @@
             <Label Text="Información del Usuario" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
 
             <Label Text="Nombre:" FontAttributes="Bold"/>
-            <Label Text="{Binding Nombre}" FontSize="16"/>
+            <Entry Text="{Binding Nombre}"/>
 
             <Label Text="Apellido:" FontAttributes="Bold"/>
-            <Label Text="{Binding Apellido}" FontSize="16"/>
+            <Entry Text="{Binding Apellido}"/>
 
             <Label Text="Correo institucional:" FontAttributes="Bold"/>
             <Label Text="{Binding Correo}" FontSize="16"/>
 
             <Label Text="Rol:" FontAttributes="Bold"/>
             <Label Text="{Binding Rol}" FontSize="16"/>
+
+            <Button Text="Guardar cambios" Command="{Binding GuardarCommand}" BackgroundColor="Green" TextColor="White"/>
 
         </VerticalStackLayout>
     </ScrollView>

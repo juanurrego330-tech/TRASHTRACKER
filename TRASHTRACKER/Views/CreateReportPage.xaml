@@ -11,7 +11,7 @@
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="15">
-            
+
             <Label Text="Reportar Problema de Limpieza" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
 
             <Button Text="Tomar Foto del Residuo" Command="{Binding CapturePhotoCommand}" BackgroundColor="DarkSlateGray" TextColor="White"/>
@@ -32,12 +32,19 @@
                 <Picker.Items>
                     <x:String>Baja</x:String>
                     <x:String>Media</x:String>
-                    <x:String>Alta (Riesgo / Bloqueo)</x:String>
+                    <x:String>Alta</x:String>
                 </Picker.Items>
             </Picker>
+            <Label Text="Alta = riesgo para las personas o bloqueo de paso." FontSize="12" TextColor="Gray"/>
+
+            <Label Text="Bloque:" FontAttributes="Bold"/>
+            <Picker Title="Seleccione el bloque" ItemsSource="{Binding Bloques}" SelectedItem="{Binding SelectedBloque}"/>
+
+            <Label Text="Piso:" FontAttributes="Bold"/>
+            <Picker Title="Seleccione el piso" ItemsSource="{Binding Pisos}" SelectedItem="{Binding SelectedPiso}"/>
 
             <Label Text="Descripción o referencia exacta:" FontAttributes="Bold"/>
-            <Editor Placeholder="Ej. Cerca a las bancas del bloque 12..." Text="{Binding Descripcion}" HeightRequest="80"/>
+            <Editor Placeholder="Ej. Cerca a las bancas..." Text="{Binding Descripcion}" HeightRequest="80"/>
 
             <Button Text="Enviar Reporte" Command="{Binding SubmitReportCommand}" BackgroundColor="Green" TextColor="White"/>
 

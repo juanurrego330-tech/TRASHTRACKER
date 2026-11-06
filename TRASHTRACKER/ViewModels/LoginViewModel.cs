@@ -30,6 +30,7 @@ namespace TrashTracker.ViewModels
         {
             LoginCommand = new Command(async () => await OnLoginAsync());
             NavigateToRegisterCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(RegisterPage)));
+            ForgotPasswordCommand = new Command(async () => await Shell.Current.GoToAsync(nameof(RecuperarPasswordPage)));
         }
 
         private async Task OnLoginAsync()
@@ -57,5 +58,6 @@ namespace TrashTracker.ViewModels
             }
         }
         public ICommand NavigateToRegisterCommand { get; }
+        public ICommand ForgotPasswordCommand { get; }
     }
 }
