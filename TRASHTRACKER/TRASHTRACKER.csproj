@@ -28,10 +28,10 @@
 		<MauiXamlInflator>SourceGen</MauiXamlInflator>
 
 		<!-- Display name -->
-		<ApplicationTitle>TRASHTRACKER</ApplicationTitle>
+		<ApplicationTitle>TrashTracker</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.trashtracker</ApplicationId>
+		<ApplicationId>com.juanguisam.trashtracker</ApplicationId>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -49,14 +49,11 @@
 
 	<ItemGroup>
 	<!-- App Icon (¡REEMPLAZADO AQUÍ!) -->
-	<MauiIcon Include="Resources\AppIcon\appiconbg.png" ForegroundFile="Resources\AppIcon\appiconfg.png" Color="#24CA3D" />
-
+	<MauiIcon Include="Resources\AppIcon\appicon.png" ForegroundFile="Resources\AppIcon\appiconfg.png" Color="#E3F7E6" />
 	<!-- Splash Screen -->
-	<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#24CA3D" BaseSize="128,128" />
-
+	<MauiSplashScreen Include="Resources\Splash\splash.png" Color="#F3FAF5" BaseSize="256,256" />
 	<!-- Images -->
 	<MauiImage Include="Resources\Images\*" />
-	<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 	
 	<!-- Custom Fonts -->
 	<MauiFont Include="Resources\Fonts\*" />
@@ -88,6 +85,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Resources\Styles\Tema.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\MenuPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

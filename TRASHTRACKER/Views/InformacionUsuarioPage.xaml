@@ -10,23 +10,28 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="15">
+        <VerticalStackLayout Padding="24" Spacing="16">
 
-            <Label Text="Información del Usuario" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+            <Label Text="Tus datos" Style="{StaticResource Titulo}"/>
+            <Label Text="Si algo quedó mal escrito, corrígelo aquí" Style="{StaticResource Subtitulo}"/>
 
-            <Label Text="Nombre:" FontAttributes="Bold"/>
-            <Entry Text="{Binding Nombre}"/>
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Nombre" Style="{StaticResource Etiqueta}"/>
+                    <Entry Text="{Binding Nombre}"/>
 
-            <Label Text="Apellido:" FontAttributes="Bold"/>
-            <Entry Text="{Binding Apellido}"/>
+                    <Label Text="Apellido" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Entry Text="{Binding Apellido}"/>
 
-            <Label Text="Correo institucional:" FontAttributes="Bold"/>
-            <Label Text="{Binding Correo}" FontSize="16"/>
+                    <Label Text="Correo institucional" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Label Text="{Binding Correo}" FontSize="16"/>
 
-            <Label Text="Rol:" FontAttributes="Bold"/>
-            <Label Text="{Binding Rol}" FontSize="16"/>
+                    <Label Text="Rol" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Label Text="{Binding Rol}" FontSize="16"/>
+                </VerticalStackLayout>
+            </Border>
 
-            <Button Text="Guardar cambios" Command="{Binding GuardarCommand}" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Guardar cambios" Command="{Binding GuardarCommand}"/>
 
         </VerticalStackLayout>
     </ScrollView>

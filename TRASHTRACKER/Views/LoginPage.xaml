@@ -3,36 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:TrashTracker.ViewModels"
              x:Class="TrashTracker.Views.LoginPage"
-             Title="Iniciar Sesión - TrashTracker">
-    
+             Shell.NavBarIsVisible="False"
+             Title="Iniciar sesión">
+
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
-            
-            <Label Text="TrashTracker" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
-            <Entry Placeholder="Correo Institucional (@pascualbravo.edu.co)" 
-                   Text="{Binding Correo}" 
-                   Keyboard="Email"/>
+        <VerticalStackLayout Padding="30" Spacing="14" VerticalOptions="Center">
 
-            <Entry Placeholder="Contraseña" 
-                   Text="{Binding Password}" 
-                   IsPassword="True"/>
+            <Image Source="logo_trashtracker.png" HeightRequest="150" HorizontalOptions="Center"/>
+            <Label Text="TrashTracker" Style="{StaticResource Titulo}"/>
+            <Label Text="Un campus limpio empieza por ti" Style="{StaticResource Subtitulo}" Margin="0,0,0,10"/>
 
-            <Button Text="Iniciar Sesión" 
-                    Command="{Binding LoginCommand}" 
-                    BackgroundColor="Green" 
-                    TextColor="White"/>
-            <Button Text="¿Olvidaste tu contraseña?"
-                    Command="{Binding ForgotPasswordCommand}"
-                    BackgroundColor="Transparent"
-                    TextColor="Green"/>
-            <Button Text="¿No tienes cuenta? Regístrate aquí"
-                    Command="{Binding NavigateToRegisterCommand}"
-                    BackgroundColor="Transparent"
-                    TextColor="Green"/>
+            <Entry Placeholder="Correo institucional (@pascualbravo.edu.co)" Text="{Binding Correo}" Keyboard="Email"/>
+            <Entry Placeholder="Contraseña" Text="{Binding Password}" IsPassword="True"/>
+
+            <Button Text="Iniciar sesión" Command="{Binding LoginCommand}" Margin="0,8,0,0"/>
+            <Button Text="¿Olvidaste tu contraseña?" Command="{Binding ForgotPasswordCommand}" Style="{StaticResource BotonTexto}"/>
+            <Button Text="¿No tienes cuenta? Regístrate aquí" Command="{Binding NavigateToRegisterCommand}" Style="{StaticResource BotonSuave}"/>
 
         </VerticalStackLayout>
     </ScrollView>

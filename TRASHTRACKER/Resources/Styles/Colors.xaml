@@ -1,38 +1,49 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<ResourceDictionary 
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!-- Note: For Android please see also Platforms\Android\Resources\values\colors.xml -->
-
-    <Color x:Key="Primary">#512BD4</Color>
-    <Color x:Key="PrimaryDark">#ac99ea</Color>
-    <Color x:Key="PrimaryDarkText">#242424</Color>
-    <Color x:Key="Secondary">#DFD8F7</Color>
-    <Color x:Key="SecondaryDarkText">#9880e5</Color>
-    <Color x:Key="Tertiary">#2B0B98</Color>
-
+    <!-- Claves de la plantilla (los estilos por defecto las usan) -->
+    <Color x:Key="Primary">#24CA3D</Color>
+    <Color x:Key="Secondary">#1E88E5</Color>
+    <Color x:Key="Tertiary">#0D5CA8</Color>
     <Color x:Key="White">White</Color>
     <Color x:Key="Black">Black</Color>
-    <Color x:Key="Magenta">#D600AA</Color>
-    <Color x:Key="MidnightBlue">#190649</Color>
-    <Color x:Key="OffBlack">#1f1f1f</Color>
+    <Color x:Key="Magenta">#E5533D</Color>
+    <Color x:Key="MidnightBlue">#0A2540</Color>
+    <Color x:Key="OffBlack">#12301C</Color>
+    <Color x:Key="PrimaryDark">#8EE59B</Color>
+    <Color x:Key="PrimaryDarkText">#12301C</Color>
+    <Color x:Key="SecondaryDarkText">#6EC1F6</Color>
+    <Color x:Key="Gray100">#E4EEE7</Color>
+    <Color x:Key="Gray200">#CFE0D4</Color>
+    <Color x:Key="Gray300">#B3C8B9</Color>
+    <Color x:Key="Gray400">#94AB9B</Color>
+    <Color x:Key="Gray500">#6B8072</Color>
+    <Color x:Key="Gray600">#44584B</Color>
+    <Color x:Key="Gray900">#1F2E24</Color>
+    <Color x:Key="Gray950">#131D17</Color>
 
-    <Color x:Key="Gray100">#E1E1E1</Color>
-    <Color x:Key="Gray200">#C8C8C8</Color>
-    <Color x:Key="Gray300">#ACACAC</Color>
-    <Color x:Key="Gray400">#919191</Color>
-    <Color x:Key="Gray500">#6E6E6E</Color>
-    <Color x:Key="Gray600">#404040</Color>
-    <Color x:Key="Gray900">#212121</Color>
-    <Color x:Key="Gray950">#141414</Color>
+    <!-- Paleta TrashTracker -->
+    <Color x:Key="VerdeOscuro">#168A2A</Color>
+    <Color x:Key="VerdeClaro">#E3F7E6</Color>
+    <Color x:Key="AzulOscuro">#0D5CA8</Color>
+    <Color x:Key="AzulClaro">#E3F1FC</Color>
+    <Color x:Key="Cielo">#6EC1F6</Color>
+    <Color x:Key="Sol">#F5B800</Color>
+    <Color x:Key="Naranja">#E07B39</Color>
+    <Color x:Key="Coral">#E5533D</Color>
+    <Color x:Key="Tinta">#12301C</Color>
+    <Color x:Key="TextoSuave">#5B6E62</Color>
+    <Color x:Key="Borde">#CFE3D5</Color>
+    <Color x:Key="Fondo">#F3FAF5</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>
     <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource White}"/>
     <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}"/>
-
     <SolidColorBrush x:Key="Gray100Brush" Color="{StaticResource Gray100}"/>
     <SolidColorBrush x:Key="Gray200Brush" Color="{StaticResource Gray200}"/>
     <SolidColorBrush x:Key="Gray300Brush" Color="{StaticResource Gray300}"/>
@@ -41,4 +52,5 @@
     <SolidColorBrush x:Key="Gray600Brush" Color="{StaticResource Gray600}"/>
     <SolidColorBrush x:Key="Gray900Brush" Color="{StaticResource Gray900}"/>
     <SolidColorBrush x:Key="Gray950Brush" Color="{StaticResource Gray950}"/>
+    <SolidColorBrush x:Key="BordeBrush" Color="{StaticResource Borde}"/>
 </ResourceDictionary>

@@ -3,31 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:TrashTracker.ViewModels"
              x:Class="TrashTracker.Views.MenuPage"
-             Title="Menú principal">
+             Title="{Binding Bienvenida}">
 
     <ContentPage.BindingContext>
         <vm:MenuViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="25" VerticalOptions="Center">
+        <VerticalStackLayout Padding="30" Spacing="16" VerticalOptions="Center">
 
-            <Label Text="TrashTracker" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+            <Image Source="logo_trashtracker.png" HeightRequest="130" HorizontalOptions="Center"/>
+            <Label Text="¿Qué quieres hacer hoy?" Style="{StaticResource Subtitulo}" FontSize="16" Margin="0,0,0,10"/>
 
-            <Button Text="Generar reporte"
-                    Command="{Binding GenerarReporteCommand}"
-                    HeightRequest="80" FontSize="18"
-                    BackgroundColor="Green" TextColor="White"/>
-
-            <Button Text="Ver reportes"
-                    Command="{Binding VerReportesCommand}"
-                    HeightRequest="80" FontSize="18"
-                    BackgroundColor="SeaGreen" TextColor="White"/>
-
-            <Button Text="Información Usuario"
-                    Command="{Binding InformacionUsuarioCommand}"
-                    HeightRequest="80" FontSize="18"
-                    BackgroundColor="DarkSlateGray" TextColor="White"/>
+            <Button Text="Generar reporte" Command="{Binding GenerarReporteCommand}" HeightRequest="64" FontSize="17"/>
+            <Button Text="Ver reportes" Command="{Binding VerReportesCommand}" Style="{StaticResource BotonAzul}" HeightRequest="64" FontSize="17"/>
+            <Button Text="Información Usuario" Command="{Binding InformacionUsuarioCommand}" Style="{StaticResource BotonSuave}" HeightRequest="64" FontSize="17"/>
 
         </VerticalStackLayout>
     </ScrollView>

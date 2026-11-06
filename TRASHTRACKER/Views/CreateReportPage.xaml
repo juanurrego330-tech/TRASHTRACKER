@@ -3,50 +3,62 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:TrashTracker.ViewModels"
              x:Class="TrashTracker.Views.CreateReportPage"
-             Title="Nuevo Reporte de Residuo">
+             Title="Nuevo reporte">
 
     <ContentPage.BindingContext>
         <vm:CreateReportViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+        <VerticalStackLayout Padding="20" Spacing="14">
 
-            <Label Text="Reportar Problema de Limpieza" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
+            <Label Text="Reportar un problema de limpieza" Style="{StaticResource Titulo}" FontSize="22"/>
 
-            <Button Text="Tomar Foto del Residuo" Command="{Binding CapturePhotoCommand}" BackgroundColor="DarkSlateGray" TextColor="White"/>
-            <Image Source="{Binding PhotoPath}" HeightRequest="180" WidthRequest="180" BackgroundColor="LightGray" HorizontalOptions="Center"/>
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="12">
+                    <Button Text="Tomar foto del residuo" Command="{Binding CapturePhotoCommand}" Style="{StaticResource BotonAzul}"/>
+                    <Image Source="{Binding PhotoPath}" HeightRequest="180" Aspect="AspectFit" BackgroundColor="{StaticResource VerdeClaro}"/>
+                </VerticalStackLayout>
+            </Border>
 
-            <Label Text="Tipo de Residuo:" FontAttributes="Bold"/>
-            <Picker Title="Seleccione una categoría" SelectedItem="{Binding SelectedTipoResiduo}">
-                <Picker.Items>
-                    <x:String>Orgánico</x:String>
-                    <x:String>Reciclable</x:String>
-                    <x:String>Peligroso / Vidrio</x:String>
-                    <x:String>Escombros</x:String>
-                </Picker.Items>
-            </Picker>
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Tipo de residuo" Style="{StaticResource Etiqueta}"/>
+                    <Picker Title="Seleccione una categoría" SelectedItem="{Binding SelectedTipoResiduo}">
+                        <Picker.Items>
+                            <x:String>Orgánico</x:String>
+                            <x:String>Reciclable</x:String>
+                            <x:String>Peligroso / Vidrio</x:String>
+                            <x:String>Escombros</x:String>
+                        </Picker.Items>
+                    </Picker>
 
-            <Label Text="Nivel de Urgencia:" FontAttributes="Bold"/>
-            <Picker Title="Seleccione la urgencia" SelectedItem="{Binding SelectedUrgencia}">
-                <Picker.Items>
-                    <x:String>Baja</x:String>
-                    <x:String>Media</x:String>
-                    <x:String>Alta</x:String>
-                </Picker.Items>
-            </Picker>
-            <Label Text="Alta = riesgo para las personas o bloqueo de paso." FontSize="12" TextColor="Gray"/>
+                    <Label Text="Nivel de urgencia" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Picker Title="Seleccione la urgencia" SelectedItem="{Binding SelectedUrgencia}">
+                        <Picker.Items>
+                            <x:String>Baja</x:String>
+                            <x:String>Media</x:String>
+                            <x:String>Alta</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Label Text="Alta = riesgo para las personas o bloqueo de paso." FontSize="12" TextColor="{StaticResource TextoSuave}"/>
+                </VerticalStackLayout>
+            </Border>
 
-            <Label Text="Bloque:" FontAttributes="Bold"/>
-            <Picker Title="Seleccione el bloque" ItemsSource="{Binding Bloques}" SelectedItem="{Binding SelectedBloque}"/>
+            <Border Style="{StaticResource Tarjeta}">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Bloque" Style="{StaticResource Etiqueta}"/>
+                    <Picker Title="Seleccione el bloque" ItemsSource="{Binding Bloques}" SelectedItem="{Binding SelectedBloque}"/>
 
-            <Label Text="Piso:" FontAttributes="Bold"/>
-            <Picker Title="Seleccione el piso" ItemsSource="{Binding Pisos}" SelectedItem="{Binding SelectedPiso}"/>
+                    <Label Text="Piso" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Picker Title="Seleccione el piso" ItemsSource="{Binding Pisos}" SelectedItem="{Binding SelectedPiso}"/>
 
-            <Label Text="Descripción o referencia exacta:" FontAttributes="Bold"/>
-            <Editor Placeholder="Ej. Cerca a las bancas..." Text="{Binding Descripcion}" HeightRequest="80"/>
+                    <Label Text="Descripción o referencia exacta" Style="{StaticResource Etiqueta}" Margin="0,8,0,0"/>
+                    <Editor Placeholder="Ej. Cerca a las bancas..." Text="{Binding Descripcion}" HeightRequest="90"/>
+                </VerticalStackLayout>
+            </Border>
 
-            <Button Text="Enviar Reporte" Command="{Binding SubmitReportCommand}" BackgroundColor="Green" TextColor="White"/>
+            <Button Text="Enviar reporte" Command="{Binding SubmitReportCommand}" Margin="0,4,0,20"/>
 
         </VerticalStackLayout>
     </ScrollView>

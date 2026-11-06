@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <!-- Fondo de todas las pantallas y barra superior -->
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{StaticResource Fondo}" />
+    </Style>
+    <Style TargetType="Shell" ApplyToDerivedTypes="True">
+        <Setter Property="Shell.BackgroundColor" Value="{StaticResource AzulOscuro}" />
+        <Setter Property="Shell.ForegroundColor" Value="White" />
+        <Setter Property="Shell.TitleColor" Value="White" />
+        <Setter Property="Shell.NavBarHasShadow" Value="False" />
+    </Style>
+
+    <!-- Textos -->
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource Tinta}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style x:Key="Titulo" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource VerdeOscuro}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="28" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+    </Style>
+    <Style x:Key="Subtitulo" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource TextoSuave}" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="Etiqueta" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource AzulOscuro}" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+    </Style>
+
+    <!-- Campos -->
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{StaticResource Tinta}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource TextoSuave}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+    <Style TargetType="Editor">
+        <Setter Property="TextColor" Value="{StaticResource Tinta}" />
+        <Setter Property="PlaceholderColor" Value="{StaticResource TextoSuave}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+    <Style TargetType="Picker">
+        <Setter Property="TextColor" Value="{StaticResource Tinta}" />
+        <Setter Property="TitleColor" Value="{StaticResource TextoSuave}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="BackgroundColor" Value="White" />
+    </Style>
+
+    <!-- Botones: principal (verde), azul, suave y de texto -->
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource VerdeOscuro}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+    </Style>
+    <Style x:Key="BotonAzul" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource AzulOscuro}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+    </Style>
+    <Style x:Key="BotonSuave" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource VerdeClaro}" />
+        <Setter Property="TextColor" Value="{StaticResource VerdeOscuro}" />
+        <Setter Property="BorderColor" Value="{StaticResource Primary}" />
+        <Setter Property="BorderWidth" Value="1" />
+        <Setter Property="FontFamily" Value="OpenSansSemibold" />
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Padding" Value="14,10" />
+        <Setter Property="MinimumHeightRequest" Value="48" />
+    </Style>
+    <Style x:Key="BotonTexto" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TextColor" Value="{StaticResource AzulOscuro}" />
+        <Setter Property="FontFamily" Value="OpenSansRegular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="MinimumHeightRequest" Value="40" />
+    </Style>
+
+    <!-- Tarjeta -->
+    <Style x:Key="Tarjeta" TargetType="Border">
+        <Setter Property="BackgroundColor" Value="White" />
+        <Setter Property="Stroke" Value="{StaticResource BordeBrush}" />
+        <Setter Property="StrokeThickness" Value="1" />
+        <Setter Property="Padding" Value="16" />
+        <Setter Property="StrokeShape">
+            <Setter.Value>
+                <RoundRectangle CornerRadius="14" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

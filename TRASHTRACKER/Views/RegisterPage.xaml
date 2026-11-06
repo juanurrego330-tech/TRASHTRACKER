@@ -3,40 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:TrashTracker.ViewModels"
              x:Class="TrashTracker.Views.RegisterPage"
-             Title="Registro - TrashTracker">
+             Title="Crear cuenta">
 
     <ContentPage.BindingContext>
         <vm:RegisterViewModel />
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <VerticalStackLayout Padding="30" Spacing="14" VerticalOptions="Center">
 
-            <Label Text="Crear Cuenta" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="Green"/>
+            <Label Text="Únete a TrashTracker" Style="{StaticResource Titulo}"/>
+            <Label Text="Crea tu cuenta con tu correo institucional" Style="{StaticResource Subtitulo}" Margin="0,0,0,10"/>
 
-            <Entry Placeholder="Nombre"
-                   Text="{Binding Nombre}"/>
+            <Entry Placeholder="Nombre" Text="{Binding Nombre}"/>
+            <Entry Placeholder="Apellido" Text="{Binding Apellido}"/>
+            <Entry Placeholder="Correo institucional (@pascualbravo.edu.co)" Text="{Binding Correo}" Keyboard="Email"/>
+            <Entry Placeholder="Contraseña (mínimo 8 caracteres)" Text="{Binding Password}" IsPassword="True"/>
 
-            <Entry Placeholder="Apellido"
-                   Text="{Binding Apellido}"/>
-
-            <Entry Placeholder="Correo Institucional (@pascualbravo.edu.co)" 
-                   Text="{Binding Correo}" 
-                   Keyboard="Email"/>
-
-            <Entry Placeholder="Contraseña (mínimo 8 caracteres)" 
-                   Text="{Binding Password}" 
-                   IsPassword="True"/>
-
-            <Button Text="Registrarse" 
-                    Command="{Binding RegisterCommand}" 
-                    BackgroundColor="Green" 
-                    TextColor="White"/>
-
-            <Button Text="¿Ya tienes cuenta? Inicia sesión" 
-                    Command="{Binding GoToLoginCommand}" 
-                    BackgroundColor="Transparent" 
-                    TextColor="Green"/>
+            <Button Text="Registrarse" Command="{Binding RegisterCommand}" Margin="0,8,0,0"/>
+            <Button Text="¿Ya tienes cuenta? Inicia sesión" Command="{Binding GoToLoginCommand}" Style="{StaticResource BotonTexto}"/>
 
         </VerticalStackLayout>
     </ScrollView>
